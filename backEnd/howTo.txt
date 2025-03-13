@@ -1,0 +1,27 @@
+                                            PRIMEIRO PASSO 
+ precisamos usar aquela url pra bater na api do ifood e pegar os dados de CNPJ e NUMERO DE TELEFONE
+
+
+                                             COMO FAZER?
+ Ias disse que a gente nao precisa fazer algo grande, a API do ifood ela é aberta , ate uma api paga pode fazer isso;
+ *posso ter a opçao de usar uma API pronta e dps so criar um CRUD simples que gerencia as requests
+
+
+                                          O QUE PRECISO DESCOBRIR?
+ como usar a url ( ) pra bater na api do IFOOD e pegar os dados de cnpj e numero de telefone? 
+
+ * penso que com uma API pronta, (paga ou não) jogaria a url la e ela traria os dados pra mim, uma vez ela fazendo isso
+ so precisaria criar uma interface simples de vizualizaçao dos dados 
+
+ RESULTADO: "Encontrei a URL!, agora vamos fazer nosso sistema consumir essa URL e nos retornar os dados no nosso sistema"
+                                            
+
+                                            
+                                               SEGUNDO PASSO 
+Preciso agora fazer um featch em cima dessa URL que eu encontrei, pra pegar os dados necessarios !
+
+desafios: consegui o link, ok! mas ao estruturar a logica do featch, o codigo me retorna um erro
+
+
+* temos 2 passos, URL e a logica do fetch... onde esta o problema, vamos encontrar testando primeiro a URl, ela estando retornando os dados
+entao é a estruturaçao do fetch que esta incoreta!  

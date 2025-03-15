@@ -1,42 +1,70 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+/* App.css */
+
+section {
+  background-color: #fff;
+  border: 2px solid red;
+  border-radius: 15px; /* Aumentei o border-radius para ficar mais suave */
+  padding: 30px;
+  max-width: 500px; /* Aumentei a largura para dar mais espaço */
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2); /* Melhorando a sombra para dar um efeito mais suave */
   text-align: center;
+  margin: auto;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: Arial, sans-serif;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+/* Estilo dos Inputs */
+input {
+  width: 90%;
+  padding: 15px; /* Aumentei o padding para maior conforto */
+  border: 2px solid red;
+  border-radius: 10px;
+  outline: none;
+  margin-bottom: 15px; /* Aumentei o espaço entre os inputs */
+  font-size: 16px; /* Aumentei o tamanho da fonte */
+  transition: border-color 0.3s ease-in-out;
+   
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
+/* Foco no input */
+input:focus {
+  border-color: darkred;
+}
+
+/* Estilo do Botão */
+button {
+  background-color: red;
+  color: white;
+  border: none;
+  padding: 15px;
+  border-radius: 10px; /* Aumentei o border-radius para dar mais arredondado */
+  cursor: pointer;
+  width: 100%;
+  font-size: 18px; /* Aumentei o tamanho da fonte do botão */
+  transition: background-color 0.3s ease, transform 0.2s ease; /* Suaviza a mudança de cor e aumenta a animação */
+}
+
+/* Hover do botão */
+
+
+/* Keyframe de animação para o botão */
+@keyframes animationElityConsultoria{
+  0%{
+      transform: scale(1);
   }
-  to {
-    transform: rotate(360deg);
+  100%{
+      transform: scale(1.05);
   }
+
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
-}
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
+button:hover{
+  animation-name: animationElityConsultoria  ;
+  animation-duration: 0.5s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
 }

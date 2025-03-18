@@ -33,24 +33,18 @@ export const requestByMerchaintID = async (req, res) => {
     if (!response.ok) {
       return res.status(400).json({ message: 'Erro ao buscar dados da API externa' });
     }
-
     const text = await response.text(); // Obtém a resposta como texto
-    console.log(text); // Verifique o conteúdo que está sendo retornado
-
+    
     let data;
     try {
       data = JSON.parse(text); // Tenta converter o texto para um objeto JSON
     } catch (error) {
-      console.log('Erro ao analisar JSON:', error.message);
-      return res.status(500).json({ message: 'Erro ao analisar a resposta JSON' });
+        return res.status(500).json({ message: 'Erro ao analisar a resposta JSON' });
     }
 
     // Agora que temos os dados, podemos acessar o CNPJ
     const cnpj = data.data.merchantExtra.documents.CNPJ.value;
-    console.log(cnpj); // Exibe o CNPJ
-
-    // Envia a resposta ao cliente
-    return res.status(200).json({ cnpj });
+       return res.status(200).json({ cnpj });
 
   } catch (error) {
     console.log('Erro no processamento da requisição:', error.message);

@@ -18,10 +18,41 @@
 
                                             
                                                SEGUNDO PASSO 
-Preciso agora fazer um featch em cima dessa URL que eu encontrei, pra pegar os dados necessarios !
+Preciso agora fazer um featch em cima dessa URL que eu encontrei, pra pegar os dados necessarios, meu back end faz uma req pega o cnpjj e manda p front !
 
 desafios: consegui o link, ok! mas ao estruturar a logica do featch, o codigo me retorna um erro
 
 
 * temos 2 passos, URL e a logica do fetch... onde esta o problema, vamos encontrar testando primeiro a URl, ela estando retornando os dados
 entao é a estruturaçao do fetch que esta incoreta!  
+
+                                                SITUAÇÃO PROBLEMA 
+esta quase tudo certo, meu front end consegue por meio do input capturar o cnpj e enviar pra ca, mas o problema agora é que quando
+a gente aqui, pega o marchaint id q o front enviou e faz a requisição no endpoint da API do Ifood solicitando os dados, occore um error
+chamado: Erro na requisição: SyntaxError: Unexpected token '<', "<!doctype "... is not valid JSON 
+
+em primeiro lugar ache o problema; E em segundo.... resolva o problema
+
+ONDE ELE TA? { 
+    O problema esta no meu fetch ou seja na minha requisição feita aqui! estudando a documentação do fetch
+    ela confirma pra gente, caro leitor aquilo que a gente pensou, a requisição realmente esta sendo impedida de alguma maneira por que:
+    
+    "A Promise retornada do fetch() não rejeitará o status do erro HTTP, mesmo que a resposta seja um HTTP 404 ou 500. 
+    Em vez disso, ela irá resolver normalmente.
+    Com o status ok definido como falso, e só irá rejeitar se houver FALHA na rede ou se ALGO IMPEDIR a requisição de ser completada."  
+    
+   COMO RESOLVER? : Encontrar quem é esse ALGO que IMPEDE a req de ser feita até agora encontrei algumas supostas causas (me sinto um detetive rs)
+ }
+
+
+
+Possiveis causas de acordo com minhas pesquisas: 
+
+1- erro ao especificar parametros ds headers no corpo da requisição que estruturei, mas na real serio,eu ja fiz de tudo pra
+corrigir caso o erro seja esse, e ainda ele persiste!
+
+2- Erro a forma como passei o merchaint id, talvez a sintax de como passamos o a forma como queremos capturar o valor do atributo 
+merchaintId pode estar incorreta. 
+
+3- esse eu acho pouco provavel, mas talvez o cors do navegador ta impedindo minha req de ser feita.
+

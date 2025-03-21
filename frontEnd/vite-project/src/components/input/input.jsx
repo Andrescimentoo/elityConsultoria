@@ -9,26 +9,32 @@ function extrairMerchantId(url) {
 
 // estados que gerenciam o input
 export function Input() {
-  const [url, setUrl] = useState("");  // Para armazenar a URL
-  const [merchantId, setMerchantId] = useState("");  // Para armazenar o merchantId extraído
-  const [cnpj, setCnpj] = useState("");  // Para armazenar o CNPJ da resposta
-// função de requsição para o back-end
+  const [url, setUrl] = useState(""); // Para armazenar a URL
+  const [merchantId, setMerchantId] = useState(""); // Para armazenar o merchantId extraído
+  const [cnpj, setCnpj] = useState(""); // Para armazenar o CNPJ da resposta
+  // função de requsição para o back-end
   async function buscarDados() {
     try {
       // Extraímos o merchantId da URL
       const id = extrairMerchantId(url);
-     
+
       if (!id) throw new Error("Merchant ID inválido");
-      setMerchantId(id);  // Armazenamos o merchantId no estado
+      setMerchantId(id); // Armazenamos o merchantId no estado
 
-      // Requisição para o back-end
-      const response = await fetch(`/myApiBackEnd/${id}`); // Enviamos para o back-end
-      if (!response.ok) throw new Error("Erro ao buscar dados");
+    const response = await fetch(`http://localhost:3000/myApiBackEnd?merchantId=${id}`, {
+      method: "GET", // Agora usando GET
+      headers: {
+        Accept: "application/json",
+      },
+    });
 
-      // Obtemos a resposta da API (no caso, o CNPJ)
-      const data = await response.json();
-      setCnpj(data.CNPJ);  // Armazenamos o CNPJ no estado
+    if (!response.ok) throw new Error("Erro ao buscar dados");
 
+    const data = await response.json();
+
+    if (!data.cnpj) throw new Error("CNPJ não encontrado na resposta");
+
+    setCnpj(data.cnpj);
     } catch (error) {
       console.log("Erro na requisição:", error);
     }
@@ -46,8 +52,12 @@ export function Input() {
 
       {merchantId && (
         <div>
-          <p><strong>Merchant ID:</strong> {merchantId}</p>
-          <p><strong>CNPJ:</strong> {cnpj || "CNPJ não encontrado..."}</p>
+          <p>
+            <strong>Merchant ID:</strong> {merchantId}
+          </p>
+          <p>
+            <strong>CNPJ:</strong> {cnpj || "CNPJ não encontrado..."}
+          </p>
         </div>
       )}
     </div>

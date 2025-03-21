@@ -3,4 +3,4 @@ import { requestByMerchaintID } from "../controller/makeRequestsIfood.controller
 
 export const routeMerchaintId = Router()
 
-routeMerchaintId.post("/myApiBackEnd",requestByMerchaintID)
+routeMerchaintId.get("/myApiBackEnd",requestByMerchaintID)

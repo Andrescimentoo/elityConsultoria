@@ -1,70 +1,75 @@
 /* App.css */
 
 section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   background-color: #fff;
-  border: 2px solid red;
-  border-radius: 15px; /* Aumentei o border-radius para ficar mais suave */
+  border: 2px solid #d4af37; /* dourado */
+  border-radius: 15px;
   padding: 30px;
-  max-width: 500px; /* Aumentei a largura para dar mais espaço */
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2); /* Melhorando a sombra para dar um efeito mais suave */
-  text-align: center;
+  max-width: 500px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.25);
   margin: auto;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  font-family: Arial, sans-serif;
+  font-family: 'Georgia', serif;
+  color: #0d0c2b; /* azul bem escuro */
 }
 
 /* Estilo dos Inputs */
 input {
   width: 90%;
-  padding: 15px; /* Aumentei o padding para maior conforto */
-  border: 2px solid red;
+  padding: 15px;
+  border: 2px solid #0d0c2b; /* azul escuro */
   border-radius: 10px;
   outline: none;
-  margin-bottom: 15px; /* Aumentei o espaço entre os inputs */
-  font-size: 16px; /* Aumentei o tamanho da fonte */
+  margin-bottom: 15px;
+  font-size: 16px;
   transition: border-color 0.3s ease-in-out;
-   
 }
 
 /* Foco no input */
 input:focus {
-  border-color: darkred;
+  border-color: #d4af37; /* dourado */
+}
+ul{
+  list-style: none;
+  &{
+    strong{
+     color: #8a1c14;
+      
+    }
+  }
 }
 
 /* Estilo do Botão */
 button {
-  background-color: red;
-  color: white;
-  border: none;
+  background-color: #0d0c2b; /* azul escuro */
+  color: #fff;
+  border: 2px solid #d4af37; /* borda dourada */
   padding: 15px;
-  border-radius: 10px; /* Aumentei o border-radius para dar mais arredondado */
+  border-radius: 10px;
   cursor: pointer;
   width: 100%;
-  font-size: 18px; /* Aumentei o tamanho da fonte do botão */
-  transition: background-color 0.3s ease, transform 0.2s ease; /* Suaviza a mudança de cor e aumenta a animação */
+  font-size: 18px;
+  font-weight: bold;
+  transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
-/* Hover do botão */
-
-
-/* Keyframe de animação para o botão */
-@keyframes animationElityConsultoria{
-  0%{
-      transform: scale(1);
+/* Animação do botão ao passar o mouse */
+@keyframes animationElityConsultoria {
+  0% {
+    transform: scale(1);
   }
-  100%{
-      transform: scale(1.05);
+  100% {
+    transform: scale(1.05);
   }
-
 }
 
-button:hover{
-  animation-name: animationElityConsultoria  ;
-  animation-duration: 0.5s;
-  animation-timing-function: ease-in-out;
-  animation-iteration-count: infinite;
-  animation-direction: alternate;
+button:hover {
+  background-color: #1a1841; /* tom mais claro do azul escuro */
+  animation: animationElityConsultoria 0.5s ease-in-out infinite alternate;
 }

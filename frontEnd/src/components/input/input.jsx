@@ -26,7 +26,7 @@ export function Input() {
       setMerchantId(id); // Armazenamos o merchantId no estado
 
       //  Corrigido aqui: colocamos /merchant-id/ antes do ID
-      const response = await fetch(`https://elityconsultoria-1.onrender.com/myApiBackEnd/${id}`, {
+      const response = await fetch(`https://elityconsultoria-1.onrender.com/myApiBackEnd=${id}`, {
         method: "GET",
         headers: {
           Accept: "application/json",
@@ -37,7 +37,7 @@ export function Input() {
 
       const data = await response.json();
 
-      if (!data.cnpj && data.name && data.phoneIf && data.address)
+      if (data.phoneIf && data.address)
         throw new Error("CNPJ, nome e telefone de contato não encontrados na resposta");
 
       setCnpj(data.cnpj);

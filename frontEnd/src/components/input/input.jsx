@@ -26,7 +26,7 @@ export function Input() {
       setMerchantId(id); // Armazenamos o merchantId no estado
 
      
-      const response = await fetch(`https://elityconsultoria-1.onrender.com/myApiBackEnd?merchantId=${id}`, {
+      const response = await fetch(`https://elityconsultoria-1.onrender.com`, {
         method: "GET",
         headers: {
           Accept: "application/json",

@@ -26,7 +26,7 @@ export function Input() {
       setMerchantId(id); // Armazenamos o merchantId no estado
 
       //  Corrigido aqui: colocamos /merchant-id/ antes do ID
-      const response = await fetch(`https://elityconsultoria-1.onrender.com/merchant-id/${id}`, {
+      const response = await fetch(`https://elityconsultoria-1.onrender.com/myApiBackEnd/${id}`, {
         method: "GET",
         headers: {
           Accept: "application/json",

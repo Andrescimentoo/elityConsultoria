@@ -37,7 +37,7 @@ export function Input() {
 
       const data = await response.json();
 
-      if (data.phoneIf && data.address)
+      if (!data.phoneIf && data.address)
         throw new Error("CNPJ, nome e telefone de contato não encontrados na resposta");
 
       setCnpj(data.cnpj);

@@ -24,7 +24,7 @@ export function Input() {
       if (!id) throw new Error("Merchant ID inválido"); // se não for um merchaint id válido envia um erro
       setMerchantId(id); // Armazenamos o merchantId no estado
 
-    const response = await fetch(`http://localhost:3000/myApiBackEnd?merchantId=${id}`, {
+    const response = await fetch(`https://elityconsultoria-1.onrender.com${id}`, {
       method: "GET", // Agora usando GET
       headers: {
         Accept: "application/json",

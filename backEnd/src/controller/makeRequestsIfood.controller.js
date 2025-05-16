@@ -1,3 +1,4 @@
+
 export const requestByMerchaintID = async (req, res) => {
   try {
     const merchantId = req.query.merchantId;
@@ -51,10 +52,16 @@ export const requestByMerchaintID = async (req, res) => {
        //const data = response.data.merchaintExtra
        //const {name,documents,phoneIf,adress} = data
        // data.
-    if (!data.data?.merchantExtra?.documents?.CNPJ?.value || !data.data?.merchantExtra?.phoneIf) {
-      return res.status(404).json({ message: "CNPJ,nome, numero de contato ou endereço não encontrados" });
-    }
+    //if (!data.data?.merchantExtra?.documents?.CNPJ?.value || !data.data?.merchantExtra?.phoneIf) {
+     // return res.status(404).json({ message: "CNPJ,nome, numero de contato ou endereço não encontrados" });
+    //}
     // return res.status(200).json({name,phoneIf,cnpj,adress})
+    
+    
+    
+    
+    
+    
     return res.status(200).json({ // aqui também sinto que dá pra reconstruir
       name: data.data.merchantExtra.name,
       phoneIf: data.data.merchantExtra.phoneIf,

@@ -8,8 +8,6 @@ const port = process.env.PORT || 3000
 app.use(cors('https://frontendelityconsultoria.vercel.app'))
 app.use(express.json()) 
 
-app.get('/', (req, res) => res.send('Backend ativo!')) // rota de teste
-
 app.use(routeMerchaintId)
 
 app.listen(port, () => {

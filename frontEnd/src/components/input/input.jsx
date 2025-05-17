@@ -11,10 +11,10 @@ function extrairMerchantId(url) {
 export function Input() {
   const [url, setUrl] = useState(""); // Para armazenar a URL
   const [merchantId, setMerchantId] = useState(""); // Para armazenar o merchantId extraído
-  const [cnpj, setCnpj] = useState("");
+  const [documents, setDocuments] = useState("");
   const [name, setName] = useState(""); // Para armazenar o nome
   const [phoneIf, setPhoneIf] = useState("");
-  const [adress, setAddress] = useState("");
+  const [address, setAddress] = useState("");
 
   // função de requisição para o back-end
   async function buscarDados() {
@@ -40,7 +40,7 @@ export function Input() {
       if (!data.phoneIf && data.address)
         throw new Error("CNPJ, nome e telefone de contato não encontrados na resposta");
 
-      setCnpj(data.cnpj);
+      setDocuments(data.documents);
       setName(data.name);
       setPhoneIf(data.phoneIf);
       setAddress(data.address);
@@ -63,7 +63,7 @@ export function Input() {
         <div className="interface_de_dados">
           <ul>
             <li>
-              <p><strong>CNPJ: </strong>{cnpj || "CNPJ não encontrado..."}</p>
+              <p><strong>CNPJ: </strong>{documents.CNPJ.value || "CNPJ não encontrado..."}</p>
             </li>
             <li>
               <p><strong>Nome: </strong>{name || "Nome não encontrado"}</p>
@@ -72,22 +72,22 @@ export function Input() {
               <p><strong>Telefone de contato: </strong>{phoneIf || "Telefone de contato não encontrado"}</p>
             </li>
             <li>
-              <p><strong>Cidade: </strong>{adress.city || "Cidade não encontrada"}</p>
+              <p><strong>Cidade: </strong>{address.city || "Cidade não encontrada"}</p>
             </li>
             <li>
-              <p><strong>Estado: </strong>{adress.state || "Estado não encontrado"}</p>
+              <p><strong>Estado: </strong>{address.state || "Estado não encontrado"}</p>
             </li>
             <li>
-              <p><strong>Distrito: </strong>{adress.district || "Distrito não encontrado"}</p>
+              <p><strong>Distrito: </strong>{address.district || "Distrito não encontrado"}</p>
             </li>
             <li>
-              <p><strong>Rua: </strong>{adress.street || "Rua não encontrada"}</p>
+              <p><strong>Rua: </strong>{address.street || "Rua não encontrada"}</p>
             </li>
             <li>
-              <p><strong>Número: </strong>{adress.number || "Número não encontrado"}</p>
+              <p><strong>Número: </strong>{address.number || "Número não encontrado"}</p>
             </li>
             <li>
-              <p><strong>CEP: </strong>{adress.zip || "CEP não encontrado"}</p>
+              <p><strong>CEP: </strong>{address.zip || "CEP não encontrado"}</p>
             </li>
           </ul>
         </div>

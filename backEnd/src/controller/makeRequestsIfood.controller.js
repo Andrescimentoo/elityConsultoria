@@ -47,14 +47,15 @@ export const requestByMerchaintID = async (req, res) => {
       
     }
        const data = await response.json(); //guardando os dados em json, e dps escolhendo os dados que eu quero mandar pro front?
+       
        const datasToResponse = data.data.merchantExtra
        const { name,phoneIf,documents,address} = datasToResponse
        // DESCONSTRUÇÃO Serve pra extrair valores específicos de um objeto/array que você já tem.
        
         
     
-       if (!datasToResponse.phoneIf || !datasToResponse.address) {
-         return res.status(404).json({ message: "CNPJ,nome, numero de contato ou endereço não encontrados" });
+       if (!datasToResponse.phoneIf && !datasToResponse.address) {
+         return res.status(404).json({ message: " Número de contato ou endereço não encontrados" });
         }
          return res.status(200).json({name,phoneIf,documents,address}) // documents contem o cnpj
     

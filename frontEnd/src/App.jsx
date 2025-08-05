@@ -1,7 +1,7 @@
 import React from 'react'
 import './App.css'
-import { Input } from './components/input/input.jsx'
-import { Titles } from './components/title/title.jsx'
+import { GerarLeads } from './components/geranciadorDeLeads/gerarLeads/gerarLeads.jsx'
+import { Titles } from './components/geranciadorDeLeads/titleFazerConsulta/title.jsx'
 
 
 export function App() {
@@ -14,7 +14,7 @@ export function App() {
         </header>
   
         <main>
-          <Input />
+          <GerarLeads/>
         </main>
        
       </section>

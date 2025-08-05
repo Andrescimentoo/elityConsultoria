@@ -4,12 +4,12 @@ import { RenderingTable } from '../renderingTable/renderingTable.jsx';
 import { InputCapturaMerchaintId } from '../inputCapturaMerchantId/inputCapturaMerchaintId.jsx';
 
 export function GerarLeads () {
-    const {url,buscarDados,setUrl} = useDados()
+    const {url,buscarDados,setUrl,data} = useDados()
       return (
        <div>
          <InputCapturaMerchaintId url={url}setUrl={setUrl}/>  
-         <RenderingTable/>  
          <button onClick={buscarDados}>Buscar Dados</button>  
+         <RenderingTable data={data}/> 
          
        </div>
   )

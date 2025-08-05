@@ -1,0 +1,26 @@
+/* Estilo dos Inputs */
+input {
+  width: 90%;
+  padding: 15px;
+  border: 2px solid #0d0c2b; /* azul escuro */
+  border-radius: 10px;
+  outline: none;
+  margin-bottom: 15px;
+  font-size: 16px;
+  transition: border-color 0.3s ease-in-out;
+}
+
+/* Foco no input */
+input:focus {
+  border-color: #d4af37; /* dourado */
+}
+ul{
+  list-style: none;
+  &{
+    strong{
+     color: #8a1c14;
+      
+    }
+  }
+}
+  

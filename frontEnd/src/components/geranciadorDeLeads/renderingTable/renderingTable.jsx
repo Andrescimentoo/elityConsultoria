@@ -15,7 +15,7 @@ export const RenderingTable = () => {
             <li><strong>Bairro:</strong> {data.address?.district || 'Bairro não encontrado'}</li>
             <li><strong>Rua:</strong> {data.address?.streetName || 'Rua não encontrada'}</li>
             <li><strong>Número:</strong>{data.address?.streetNumber || 'Número não encontrado'}</li>
-            <li><strong>CEP:</strong> {data.address?.zipCode || 'CEP não encontrado'}</li>
+            <li><strong>CEP:</strong> {data.address.zipCode || 'CEP não encontrado'}</li>
       </ul>
     </div>
     

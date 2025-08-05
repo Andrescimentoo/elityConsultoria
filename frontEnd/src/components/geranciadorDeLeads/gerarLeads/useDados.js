@@ -1,0 +1,42 @@
+import { useState } from "react";
+import { extrairMerchantId } from "../inputCapturaMerchantId/extrairMarchaintId.js";
+ 
+
+export function useDados() { // pega os objetos,trata e envia para a renderização
+  const [url, setUrl] = useState("");
+  const [data,setData] = useState('')
+  const [loading,setLoading] = useState(true)
+  
+  const id = extrairMerchantId(url); // merchaintI  d extraido e enviado junto com a req pro back
+  const buscarDados = async () => {
+    try {
+        const response = await fetch(`https://elityconsultoria.onrender.com/myApiBackEnd?merchantId=${id}`, {
+        method: "GET",
+        headers: { Accept: "application/json" }
+      });
+
+      if (!response.ok) throw new Error("Erro ao buscar dados");
+
+      const data = await response.json();
+
+      if (!data.phoneIf && !data.address)
+        throw new Error("telefone de contato ou endereço não encontrados"); //não vieram no body da req
+
+      setData(data)
+      setLoading(false)
+      setUrl(id)
+    } catch (error) {
+      console.log("Erro na requisição:", error);
+    }
+  };
+
+  return {
+    url,
+    data,
+    buscarDados,
+    loading,
+    setUrl
+  };
+}
+
+

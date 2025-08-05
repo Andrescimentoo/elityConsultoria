@@ -56,3 +56,54 @@ merchaintId pode estar incorreta.
 
 3- esse eu acho pouco provavel, mas talvez o cors do navegador ta impedindo minha req de ser feita.
 
+prolema resolvido, com a estruturação do fetch funcionando e o projeto rodando em produção podemos lançar a proxima 
+parte do projeto!
+
+
+                                                  ORM:
+  A ideia é todas as consultas feitas e serem armazenadas em um SGBD 
+  como primeira etapa desse processo necessitamos criar a basee: uma camada de abstração entre o nosso SGB e a nosssa
+  aplicação back-end
+
+  O ORM da vez é o prisma
+  Pergunta a ser respondida até o fim desta etapa: Por que o prisma e não o Sequelize?:                                                   
+  
+
+
+
+
+                                    API DE NUVEM (GrahpAPI by Meta):
+
+Para a continuidade e automatização desse projeto, irei usar a API de Nuvem da Meta para ser a fonte de 
+alimentação para o meu boot. a implementação da tecnologia é a parte final do processo. Vamos estruturar por etapas 
+o plano para integrar um boot que tenha como base de alimentação a API de nuvem da Meta.
+
+Passo 1: Entender a API (o que ela retorna, qual o seu 'por baixo dos panos')
+Passo 2: Arrumar o web token da API da Meta
+Passo 3: Criar o meu boot SDR pela plataforma dataStaxs lang flow
+passo 4: integrar o boot criado a esse sistema back-end
+
+                                                
+                                                
+                                                 PASSO 1
+
+O que é a API de nuvem? é uma API que faz exatamente o que eu quero! interagir com clientes e mandar mensagens
+para os Leads pela plataforma do watsApp.
+
+Toda a API tem seus serviços, serviços podem ser endpoints específicos que retornam algo.
+A Meta é a mãe ou o "planeta" onde moram WatsApp, FaceBook, Insta e etc...
+
+Para a comunicação desses serviços a meta Usa GraphAPI que é a API que queremos consumir. no entanto 
+essa API tem varios serviços. um desses serviços é o que a gente quer! A API DE NUVEM! 
+
+A API de Nuvem é um serviço dentro da Graph API, oferecido pela Meta, que permite que você 
+(ou seu sistema) interaja com o WhatsApp de forma automática.
+mandando mensagens, recebendo, configurando webhooks, tudo isso sem precisar hospedar nada
+por conta própria — só pegar o token, o número aprovado, e mandar bala.
+
+                                         GrahpAPI
+Já que descobrimos que a API de Nuvem é um serviço da GrahpAPI, temos quee entender bem como ela funciona
+GrahpAPI é a API usada pela meta para que todos os apps possam ultilizar de seus serviços. Para criar videos, curtir fotos
+enviar mensagens e etc.
+
+

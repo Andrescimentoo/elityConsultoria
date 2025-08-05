@@ -1,0 +1,26 @@
+// primeiro passo do prisma: Reconhecer e estruturar o banco de dados
+// segundo passo : Operar sobre o banco de dados reconhecido e estruturado 
+generator client {
+  provider = "prisma-client-js"
+  output   = "../generated/prisma"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+
+ model datasOfConsults {
+   id String @id @default(uuid())
+   nome String
+   cnpj Int
+   numeroDeTelefone Int
+   cidade String
+   estado String
+   distrito String
+   nomeDaRua String
+   numeroDaRua Int
+   cep Int
+   @@map("dados_das_consultas")
+ } 

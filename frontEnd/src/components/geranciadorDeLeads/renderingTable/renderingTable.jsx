@@ -2,13 +2,11 @@ import React, { useState } from 'react'
 
 
 
-export const RenderingTable = ({ data, loading }) => {
+export const RenderingTable = ({ data,loading }) => {
   if (loading) {
     return <p>🔄 Carregando...</p>
   }
-
-  if (!data) {
-    return (
+   return (
     <div>
       <ul>
         <li><strong>Nome:</strong> {data.name || 'Nome não encontrado'}</li>
@@ -22,7 +20,7 @@ export const RenderingTable = ({ data, loading }) => {
       </ul>
     </div>
   )
-  }
+  
 
   
 }

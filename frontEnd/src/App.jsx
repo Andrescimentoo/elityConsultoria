@@ -7,10 +7,9 @@ import { GerarLeads } from './components/geranciadorDeLeads/gerarLeads/gerarLead
 export function App() {
   
   return (
-    <>
-              
+    <>        
           <GerarLeads/>
-       
+      
 
      
     </>

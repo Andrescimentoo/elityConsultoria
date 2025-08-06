@@ -1,4 +1,5 @@
 import React from "react";
+import "./inputCapturaMerchaintId.css"
 export const InputCapturaMerchaintId = ({url,setUrl}) => {
    return (
     <input

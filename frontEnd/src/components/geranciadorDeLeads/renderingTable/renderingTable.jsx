@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 
 
 
-export const RenderingTable = ({ data,loading }) => {
+export const RenderingTable = ({data,loading}) => {
   if (loading) {
     return <p>🔄 Carregando...</p>
   }

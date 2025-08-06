@@ -7,10 +7,11 @@ export function useDados() { // pega os objetos,trata e envia para a renderizaç
   const [data,setData] = useState('')
   
   
-  const id = extrairMerchantId(url); // merchaintI  d extraido e enviado junto com a req pro back
+   // merchaintI  d extraido e enviado junto com a req pro back
   const buscarDados = async () => {
-   
+  
     try {
+        const id = extrairMerchantId(url);
         const response = await fetch(`https://elityconsultoria.onrender.com/myApiBackEnd?merchantId=${id}`, {
         method: "GET",
         headers: { Accept: "application/json" }

@@ -4,12 +4,12 @@ import { extrairMerchantId } from "../inputCapturaMerchantId/extrairMarchaintId.
 
 export function useDados() { // pega os objetos,trata e envia para a renderização
   const [url, setUrl] = useState("");
-  const [data,setData] = useState([])
-  const [loading,setLoading] = useState(false)
+  const [data,setData] = useState('')
+  
   
   const id = extrairMerchantId(url); // merchaintI  d extraido e enviado junto com a req pro back
   const buscarDados = async () => {
-    setLoading(true)
+   
     try {
         const response = await fetch(`https://elityconsultoria.onrender.com/myApiBackEnd?merchantId=${id}`, {
         method: "GET",
@@ -19,6 +19,7 @@ export function useDados() { // pega os objetos,trata e envia para a renderizaç
       if (!response.ok) throw new Error("Erro ao buscar dados");
 
       const data = await response.json();
+      
       setData(data)
       setUrl(id)
 
@@ -34,7 +35,6 @@ export function useDados() { // pega os objetos,trata e envia para a renderizaç
     url,
     data,
     buscarDados,
-    loading,
     setUrl
   };
 }

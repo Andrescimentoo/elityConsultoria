@@ -6,7 +6,6 @@ export const RenderingTable = ({data}) => {
     return (
     <div>
       <ul>
-            <li><strong>CNPJ:</strong> {data.documents?.CNPJ?.value || 'CNPJ não encontrado'}</li>
             <li><strong>Nome:</strong> {data.name || 'Nome não encontrado'}</li>
             <li><strong>Telefone:</strong> {data?.phoneIf || 'Telefone não encontrado'}</li>
             <li><strong>Cidade:</strong> {data.address?.city || 'Cidade não encontrada'}</li>

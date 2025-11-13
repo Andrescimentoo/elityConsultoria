@@ -1,5 +1,5 @@
 
-export const requestByMerchaintID = async (req, res) => {
+export const requestByMerchaintID = async (req, res) => { // mudar nome para requestToIfoodAPI
   try {
     const merchantId = req.query.merchantId;
 
@@ -46,7 +46,7 @@ export const requestByMerchaintID = async (req, res) => {
       return res.status(response.status).json({ message: "Erro ao buscar dados da API externa" });
       
     }
-       const data = await response.json(); //guardando os dados em json, e dps escolhendo os dados que eu quero mandar pro front?
+       const data = await response.json(); //pegando o json retornado como resposta da requisição e dps escolhendo os dados que eu quero mandar pro front?
        
        const datasToResponse = data.data.merchantExtra
        const { name,phoneIf,documents,address} = datasToResponse

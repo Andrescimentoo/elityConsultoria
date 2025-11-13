@@ -1,5 +1,5 @@
 
-export const requestByMerchaintID = async (req, res) => { // mudar nome para requestToIfoodAPI
+export const makeRequestIfoodAPI = async (req, res) => { // mudar nome para requestToIfoodAPI
   try {
     const merchantId = req.query.merchantId;
 

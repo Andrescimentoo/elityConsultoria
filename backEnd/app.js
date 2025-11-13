@@ -1,8 +1,8 @@
 import express from 'express'
-import { routeMerchaintId } from './src/routes/merchaintId.routes.js'
+import { routeRequestIfoodAPI } from './src/routes/routeRequestIfoodAPI.routes.js'
 import { allowedOrigins } from './cors.config.js'
 import cors from 'cors'
-import { routesToDatasOfConsultes } from './src/routes/routesTodatasOfConsultes.routes.js'
+import { routesToDatasOfLeads } from './src/routes/routesToDatasOfLeads.routes.js'
 import dotenv from "dotenv"
 
 dotenv.config()
@@ -21,8 +21,8 @@ app.use(cors({
 }))
 app.use(express.json()) 
 
-app.use(routeMerchaintId)
-app.use(routesToDatasOfConsultes)
+app.use(routesToDatasOfLeads)
+app.use(routeRequestIfoodAPI)
 
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`)

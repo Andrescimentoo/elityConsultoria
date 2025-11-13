@@ -1,6 +1,7 @@
 import { prisma } from "../prismaClient";
+// me parece que já existe um endPoint (este) que salva os leads, mas tenho q entender melhor
 
-export const storeNewRestaurant = async (req,res) => {
+export const saveLeads = async (req,res) => {
     try {
         const {
             nome,
@@ -13,19 +14,20 @@ export const storeNewRestaurant = async (req,res) => {
             cep
         } = req.body
         
-        const existing = await prisma.dataOfConsults.findFirst({
+        const verifyLeadExistense = await prisma.dataOfConsults.findFirst({ // provavel que a verificação se faz pegando da tabela dataOfConsults um dado único
+        //(poderia ser ID mas é cnpj) e aí faz  a validação atravez do if, se oo dado existe retorna status 409 (já existe) se não cria o novo lead.
           where: {
-            cnpj,
+            cnpj ,
             numeroDeTelefone,
           }
         });
-        if (existing) {
+        if (verifyLeadExistense) {
           return res.status(409).send({
-            message: "Restaurante já cadastrado no banco de dados!"
+            message: "Lead já cadastrado no banco de dados!"
           });
         }
        
-        const createNewRestaurant = await prisma.dataOfConsults.create({
+        const createLead = await prisma.dataOfConsults.create({
             data:{
             nome,
             cnpj,
@@ -38,11 +40,11 @@ export const storeNewRestaurant = async (req,res) => {
         }
             
     })
-        res.status(201).send(createNewRestaurant)
+        res.status(201).send(createLead)
     } catch (error) {
         res.status(500).send({
             error,
-            message:'erro ao adicionar reestaurante cadastrado '
+            message:'erro ao criar lead '
         })
     }
 }

@@ -3,6 +3,9 @@ import { routeMerchaintId } from './src/routes/merchaintId.routes.js'
 import { allowedOrigins } from './cors.config.js'
 import cors from 'cors'
 import { routesToDatasOfConsultes } from './src/routes/routesTodatasOfConsultes.routes.js'
+import dotenv from "dotenv"
+
+dotenv.config()
 
 const app = express()
 const port = process.env.PORT || 3000

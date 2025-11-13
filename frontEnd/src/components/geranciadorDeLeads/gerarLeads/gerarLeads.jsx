@@ -1,27 +1,31 @@
 import React, { useState } from 'react'
-import { useDados } from "./useDados.js";
+import { useDados } from "../../../customHooks/useDados.js";
 import { RenderingTable } from '../renderingTable/renderingTable.jsx';
 import { InputCapturaMerchaintId } from '../inputCapturaMerchantId/inputCapturaMerchaintId.jsx';
+import { UseSaveLeads } from '../../../customHooks/useSaveLeads.js';
 import './gerarLeads.css'
 
 export function GerarLeads () {
     
     const {url,buscarDados,setUrl,data} = useDados()
-    const [mostrarTabela,setMostrarTabela] = useState(false)
-    const [loading,setLoading] = useState(false)
+    const requestSaveLeads = UseSaveLeads() 
+    
+    const [mostrarTabela,setMostrarTabela] = useState(false) // componente de tabela começa como false, não aparece em tela
+    const [loading,setLoading] = useState(false) // componente de loading não aparece em tela 
+    //estados para renderização da tabela
    
     const dispararRenderizacao = async () => {
-      setMostrarTabela(true)
-      setLoading(true)
+      setMostrarTabela(true) // função dispararRenderização é instanciada: componente de tabela renderiza
+      setLoading(true) // função dispararRenderização é instanciada: componente de loading renderiza
      
       try {
-         await buscarDados()
+         await buscarDados() // "disparar renderização além de orquestrar 2 estados, é resposável por executar/instanciar a função buscarDados
       
       }catch (error) {
         console.log('erro na função buscar dados')
     
        }finally{
-         setLoading(false)
+         setLoading(false) // buscar dados foi chamada e executada? então volta o estado de loading pra false (ele some!) a tabela não! ela continua, mas agora com os dados renderizados dentro dela.
     } 
 
     }
@@ -35,20 +39,13 @@ export function GerarLeads () {
         
          <main>
            <InputCapturaMerchaintId url= {url} setUrl= {setUrl}/>
-           <button onClick={dispararRenderizacao}>Buscar Dados</button>
+           
+           <button onClick={dispararRenderizacao}>Buscar Leads</button>
+           <button onClick={requestSaveLeads}>Salvar leads</button>
+           
            {mostrarTabela && <RenderingTable data= {data} loading= {loading}/>} 
          </main>
         </section> 
       </> 
     )}
 
-// começa por aí: que peças você quer mecher? E COMO QUER QUE SE MECHAM?
-
-// nesse caso eu tenho 2 peças que vão fazer meu componente se mecher, o use state operará como um maestro , orquestrando seu movimento
-// eu quero que o componente gerar leads inicie na tela mostrando apenas o componente 
-// Input/ buttonn/title 
-// Depois eu quero que ao ser apertado o botão buscar dados
-
-
-
-// transforma em true o estado de loading.   

@@ -80,7 +80,8 @@ backEnd/
 - **Segurança**: nunca commite arquivos `.env` ou credenciais sensíveis. Use variáveis de ambiente em produção (Vercel, Render, Railway etc.).
 - **Logs e monitoramento**: `console.log` no `app.listen` é útil localmente, mas utilize ferramentas de observabilidade em produção.
 
-## Próximos passos sugeridos
+## Próximos passos 
 - Adicionar testes automatizados para os controllers críticos.
 - Centralizar mensagens de erro para respostas consistentes.
-- Documentar o contrato da API (Swagger ou arquivos OpenAPI) para facilitar integrações de parceiros.
+- Documentar o contrato da API (Swagger ou arquivos OpenAPI) para facilitar integrações de parceiros e que todos possam entender a 
+responsábilidade de cada rota e cada controller.

@@ -81,6 +81,7 @@ backEnd/
 - **Logs e monitoramento**: `console.log` no `app.listen` é útil localmente, mas utilize ferramentas de observabilidade em produção.
 
 ## Próximos passos 
+- Integrar um agente de IA que recebe os dados dos números de telefone e manda mensagens automatizadas para esses números.
 - Adicionar testes automatizados para os controllers críticos.
 - Centralizar mensagens de erro para respostas consistentes.
 - Documentar o contrato da API (Swagger ou arquivos OpenAPI) para facilitar integrações de parceiros e que todos possam entender a 

@@ -6,7 +6,7 @@ export const UseSaveLeads = () => {
 
   const requestSaveLeads = async () => {
     try {
-      const reqSalvarLeads = await fetch('/endpointSaveLeads', {
+      const reqSalvarLeads = await fetch('https://elityconsultoria.onrender.com/endpointSaveLeads', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -22,13 +22,13 @@ export const UseSaveLeads = () => {
       if (!reqSalvarLeads.ok) {
         throw new Error('Erro ao salvar no servidor')
       }
-      
+
     } catch (error) {
-     console.log('Erro ao salvar: ' + error.message)
+      console.log('Erro ao salvar: ' + error.message)
     }
   }
 
   return (
-   requestSaveLeads
+    requestSaveLeads
   )
 }

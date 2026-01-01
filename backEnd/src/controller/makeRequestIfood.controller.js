@@ -1,7 +1,7 @@
 
-export const makeRequestIfoodAPI = async (req, res) => { // mudar nome para requestToIfoodAPI
+export const makeRequestIfoodAPI = async (req, res) => { 
   try {
-    const merchantId = req.query.merchantId;
+    const merchantId = req.query.merchantId; // simulei  
 
     if (!merchantId) {
       return res.status(400).json({ message: "Merchant ID é obrigatório" });
@@ -49,6 +49,7 @@ export const makeRequestIfoodAPI = async (req, res) => { // mudar nome para requ
        const data = await response.json(); //pegando o json retornado como resposta da requisição e dps escolhendo os dados que eu quero mandar pro front?
        
        const datasToResponse = data.data.merchantExtra
+      
        const { name,phoneIf,documents,address} = datasToResponse
        // DESCONSTRUÇÃO Serve pra extrair valores específicos de um objeto/array que você já tem.
        
@@ -61,7 +62,6 @@ export const makeRequestIfoodAPI = async (req, res) => { // mudar nome para requ
     
        
   } catch (error) {
-      console.error("Erro no processamento da requisição:", error.message);
-    return res.status(500).json({ message: "Erro na requisição", error: error.message });
+      return res.status(500).json({ message: "Erro na requisição", error: error.message });
   }
 };

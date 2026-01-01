@@ -1,39 +1,43 @@
 import React from 'react'
+import { useShowLeadsHistory } from '../../customHooks/sowLeadsHistory'
 
 export const ExibirHistoricoDeLeads = () => {
-  const [datas,setDatas] = useState('') // esse é o estado
-  
+
+
+  const { data, fetchHistory } = useShowLeadsHistory()
+
+
   return (
     <>
-       <div>
-        Exibir Histórico de leads 
-       </div> 
+      <div>
+        Exibir Histórico de leads
+      </div>
 
       <div>
-      <ul>
-        <li><strong>Nome:</strong> {data.name || 'Nome não encontrado'}</li>
-        <li><strong>Telefone:</strong> {data.phoneIf || 'Telefone não encontrado'}</li>
-        <li><strong>Cidade:</strong> {data.address?.city || 'Cidade não encontrada'}</li>
-        <li><strong>Estado:</strong> {data.address?.state || 'Estado não encontrado'}</li>
-        <li><strong>Bairro:</strong> {data.address?.district || 'Bairro não encontrado'}</li>
-        <li><strong>Rua:</strong> {data.address?.streetName || 'Rua não encontrada'}</li>
-        <li><strong>Número:</strong> {data.address?.streetNumber || 'Número não encontrado'}</li>
-        <li><strong>CEP:</strong> {data.address?.zipCode || 'CEP não encontrado'}</li>
-      </ul>
-    </div>
+        <ul>
+          {data && (
+            <>
+              <li><strong>Nome:</strong> {data.nome}</li>
+              <li><strong>CNPJ:</strong> {data.cnpj}</li>
+              <li><strong>Telefone:</strong> {data.numeroDeTelefone}</li>
+              <li><strong>Endereço:</strong> {data.nomeDaRua}, {data.numeroDaRua} - {data.distrito}, {data.cidade}/{data.estado}</li>
+              <li><strong>CEP:</strong> {data.cep}</li>
+            </>
+          )}
+        </ul>
+      </div>
 
-       <div>
-         <button onClick={useShowLeadshistory}>Exibir Histórico de Leads</button>
-       </div>
+      <div>
+        <button onClick={fetchHistory}>Exibir Histórico de Leads</button>
+      </div>
     </>
-   
+
   )
 }
 
 
 
 
-// vou ter q criar um webHook separado também por que além da chamada vai ter a renderização dos dados através de estados.
 
 
 

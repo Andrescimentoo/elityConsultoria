@@ -1,6 +1,6 @@
-
-import { PrismaClient } from "@prisma/client/extension"; // configuar o prisma como banco:
+import pkg from '@prisma/client'
+const { PrismaClient } = pkg
 
 export const prisma = new PrismaClient({
-    log:['querry'],
+    log: ['query'],
 })

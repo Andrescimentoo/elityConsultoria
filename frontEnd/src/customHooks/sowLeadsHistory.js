@@ -2,15 +2,17 @@
 import { useState, useCallback } from 'react'
 
 export function useShowLeadsHistory() {
- 
+
   const [data, setData] = useState(null)      // dados que vierem do back
   const [loading, setLoading] = useState(false) // Como o estado de loaing é usado? ()
- 
+
+
 
   const fetchHistory = useCallback(async () => {
     try {
       setLoading(true)
-      setError(null)
+
+
 
       const response = await fetch('https://elityconsultoria.onrender.com/findManyLeads', {
         method: 'GET',
@@ -25,9 +27,9 @@ export function useShowLeadsHistory() {
 
       const json = await response.json()   // <- aqui vem o JSON do back
       setData(json)                        // <- joga no estado do hook
-    } catch (err) {
-      console.error(err)
-      setError(err)
+    } catch {
+
+      // setError(err)
     } finally {
       setLoading(false)
     }
@@ -37,7 +39,6 @@ export function useShowLeadsHistory() {
   return {
     data,        // dados pra renderizar
     loading,     // opcional: pra spinner
-    error,       // opcional: pra mensagem de erro
     fetchHistory // função pra chamar no onClick
   }
 }
